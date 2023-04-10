@@ -33,11 +33,11 @@ import (
 	"github.com/containernetworking/plugins/pkg/testutils"
 )
 
-func buildOneConfig(name, cniVersion string, orig *TuningConf, prevResult types.Result) (*TuningConf, []byte, error) {
+func buildOneConfig(cniVersion string, orig *TuningConf, prevResult types.Result) (*TuningConf, []byte, error) {
 	var err error
 
 	inject := map[string]interface{}{
-		"name":       name,
+		"name":       "testConfig",
 		"cniVersion": cniVersion,
 	}
 	// Add previous plugin result
