@@ -256,7 +256,7 @@ var _ = Describe("tuning plugin", func() {
 					err = json.Unmarshal(conf, &n)
 					Expect(err).NotTo(HaveOccurred())
 
-					_, confString, err := buildOneConfig("testConfig", ver, n, r)
+					_, confString, err := buildOneConfig(ver, n, r)
 					Expect(err).NotTo(HaveOccurred())
 
 					args.StdinData = confString
@@ -398,7 +398,7 @@ var _ = Describe("tuning plugin", func() {
 					err = json.Unmarshal(conf, &n)
 					Expect(err).NotTo(HaveOccurred())
 
-					_, confString, err := buildOneConfig("testConfig", ver, n, r)
+					_, confString, err := buildOneConfig(ver, n, r)
 					Expect(err).NotTo(HaveOccurred())
 
 					args.StdinData = confString
@@ -544,7 +544,7 @@ var _ = Describe("tuning plugin", func() {
 					err = json.Unmarshal(conf, &n)
 					Expect(err).NotTo(HaveOccurred())
 
-					_, confString, err := buildOneConfig("testConfig", ver, n, r)
+					_, confString, err := buildOneConfig(ver, n, r)
 					Expect(err).NotTo(HaveOccurred())
 
 					args.StdinData = confString
@@ -690,7 +690,7 @@ var _ = Describe("tuning plugin", func() {
 					err = json.Unmarshal(conf, &n)
 					Expect(err).NotTo(HaveOccurred())
 
-					_, confString, err := buildOneConfig("testConfig", ver, n, r)
+					_, confString, err := buildOneConfig(ver, n, r)
 					Expect(err).NotTo(HaveOccurred())
 
 					args.StdinData = confString
@@ -842,7 +842,7 @@ var _ = Describe("tuning plugin", func() {
 					err = json.Unmarshal(conf, &n)
 					Expect(err).NotTo(HaveOccurred())
 
-					_, confString, err := buildOneConfig("testConfig", ver, n, r)
+					_, confString, err := buildOneConfig(ver, n, r)
 					Expect(err).NotTo(HaveOccurred())
 
 					args.StdinData = confString
@@ -921,7 +921,7 @@ var _ = Describe("tuning plugin", func() {
 					err = json.Unmarshal(conf, &n)
 					Expect(err).NotTo(HaveOccurred())
 
-					_, confString, err := buildOneConfig("testConfig", ver, n, r)
+					_, confString, err := buildOneConfig(ver, n, r)
 					Expect(err).NotTo(HaveOccurred())
 
 					args.StdinData = confString
