@@ -11,6 +11,7 @@ linters:
   enable:
     - contextcheck
     - durationcheck
+    - errcheck
     - gci
     - ginkgolinter
     - gocritic
@@ -26,8 +27,6 @@ linters:
     - unconvert
     - unused
     - wastedassign
-  disable:
-    - errcheck
 
 linters-settings:
   gci:
