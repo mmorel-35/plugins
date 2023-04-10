@@ -161,7 +161,6 @@ var _ = Describe("Basic PTP using cnitool", func() {
 			Expect(basicBridgeIP).To(ContainSubstring("10.11.2."))
 
 			var chainedBridgeBandwidthPort, basicBridgePort int
-			var err error
 
 			By(fmt.Sprintf("starting echo server in %s\n\n", contNS1.ShortName()))
 			chainedBridgeBandwidthPort, chainedBridgeBandwidthSession = startEchoServerInNamespace(contNS1)
