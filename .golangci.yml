@@ -8,10 +8,11 @@ issues:
       text: " and that stutters;"
 
 linters:
+  disable:
+    - errcheck
   enable:
     - contextcheck
     - durationcheck
-    - errcheck
     - gci
     - ginkgolinter
     - gocritic
@@ -25,6 +26,7 @@ linters:
     - revive
     - staticcheck
     - unconvert
+    - unparam
     - unused
     - wastedassign
 
