@@ -45,10 +45,10 @@ func (f *fakeFirewalld) clear() {
 	f.source = ""
 }
 
-func (f *fakeFirewalld) AddSource(zone, source string) (string, *dbus.Error) {
+func (f *fakeFirewalld) AddSource(zone, source string) string {
 	f.zone = zone
 	f.source = source
-	return "", nil
+	return ""
 }
 
 func (f *fakeFirewalld) RemoveSource(zone, source string) string {
