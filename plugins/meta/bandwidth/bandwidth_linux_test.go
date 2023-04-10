@@ -73,7 +73,7 @@ func buildOneConfig(name, cniVersion string, orig *PluginConf, prevResult types.
 
 	conf := &PluginConf{}
 	if err := json.Unmarshal(newBytes, &conf); err != nil {
-		return nil, nil, fmt.Errorf("error parsing configuration: %s", err)
+		return nil, fmt.Errorf("error parsing configuration: %s", err)
 	}
 
 	return newBytes, nil
@@ -950,7 +950,7 @@ var _ = Describe("bandwidth test", func() {
 						EgressRate:   rateInBits,
 					}
 					tbfPluginConf.Type = "bandwidth"
-					_, newConfBytes, err := buildOneConfig("myBWnet", ver, tbfPluginConf, containerWithTbfResult)
+					newConfBytes, err := buildOneConfig("myBWnet", ver, tbfPluginConf, containerWithTbfResult)
 					Expect(err).NotTo(HaveOccurred())
 
 					args := &skel.CmdArgs{
@@ -977,7 +977,7 @@ var _ = Describe("bandwidth test", func() {
 						}
 						checkConf.Type = "bandwidth"
 
-						_, newCheckBytes, err := buildOneConfig("myBWnet", ver, checkConf, result)
+						newCheckBytes, err := buildOneConfig("myBWnet", ver, checkConf, result)
 						Expect(err).NotTo(HaveOccurred())
 
 						args = &skel.CmdArgs{
