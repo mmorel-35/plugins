@@ -51,20 +51,20 @@ func (f *fakeFirewalld) AddSource(zone, source string) (string, *dbus.Error) {
 	return "", nil
 }
 
-func (f *fakeFirewalld) RemoveSource(zone, source string) (string, *dbus.Error) {
+func (f *fakeFirewalld) RemoveSource(zone, source string) string {
 	f.zone = zone
 	f.source = source
-	return "", nil
+	return ""
 }
 
-func (f *fakeFirewalld) QuerySource(zone, source string) (bool, *dbus.Error) {
+func (f *fakeFirewalld) QuerySource(zone, source string) bool {
 	if f.zone != zone {
-		return false, nil
+		return false
 	}
 	if f.source != source {
-		return false, nil
+		return false
 	}
-	return true, nil
+	return true
 }
 
 func spawnSessionDbus(wg *sync.WaitGroup) (string, *exec.Cmd) {
