@@ -995,10 +995,8 @@ var _ = Describe("bandwidth test", func() {
 				})).To(Succeed())
 
 				By("starting a tcp server on both containers")
-				portServerWithTbf, echoServerWithTbf, err = startEchoServerInNamespace(containerWithTbfNS)
-				Expect(err).NotTo(HaveOccurred())
-				portServerWithoutTbf, echoServerWithoutTbf, err = startEchoServerInNamespace(containerWithoutTbfNS)
-				Expect(err).NotTo(HaveOccurred())
+				portServerWithTbf, echoServerWithTbf = startEchoServerInNamespace(containerWithTbfNS)
+				portServerWithoutTbf, echoServerWithoutTbf = startEchoServerInNamespace(containerWithoutTbfNS)
 			})
 
 			AfterEach(func() {
