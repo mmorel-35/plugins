@@ -164,12 +164,10 @@ var _ = Describe("Basic PTP using cnitool", func() {
 			var err error
 
 			By(fmt.Sprintf("starting echo server in %s\n\n", contNS1.ShortName()))
-			chainedBridgeBandwidthPort, chainedBridgeBandwidthSession, err = startEchoServerInNamespace(contNS1)
-			Expect(err).ToNot(HaveOccurred())
+			chainedBridgeBandwidthPort, chainedBridgeBandwidthSession = startEchoServerInNamespace(contNS1)
 
 			By(fmt.Sprintf("starting echo server in %s\n\n", contNS2.ShortName()))
-			basicBridgePort, basicBridgeSession, err = startEchoServerInNamespace(contNS2)
-			Expect(err).ToNot(HaveOccurred())
+			basicBridgePort, basicBridgeSession = startEchoServerInNamespace(contNS2)
 
 			packetInBytes := 20000 // The shaper needs to 'warm'. Send enough to cause it to throttle,
 			// balanced by run time.
