@@ -35,7 +35,7 @@ import (
 	"github.com/containernetworking/plugins/pkg/testutils"
 )
 
-func buildOneConfig(name, cniVersion string, orig *PluginConf, prevResult types.Result) (*PluginConf, []byte, error) {
+func buildOneConfig(name, cniVersion string, orig *PluginConf, prevResult types.Result) ([]byte, error) {
 	var err error
 
 	inject := map[string]interface{}{
@@ -54,12 +54,12 @@ func buildOneConfig(name, cniVersion string, orig *PluginConf, prevResult types.
 
 	confBytes, err := json.Marshal(orig)
 	if err != nil {
-		return nil, nil, err
+		return nil, err
 	}
 
 	err = json.Unmarshal(confBytes, &config)
 	if err != nil {
-		return nil, nil, fmt.Errorf("unmarshal existing network bytes: %s", err)
+		return nil, fmt.Errorf("unmarshal existing network bytes: %s", err)
 	}
 
 	for key, value := range inject {
@@ -68,7 +68,7 @@ func buildOneConfig(name, cniVersion string, orig *PluginConf, prevResult types.
 
 	newBytes, err := json.Marshal(config)
 	if err != nil {
-		return nil, nil, err
+		return nil, err
 	}
 
 	conf := &PluginConf{}
@@ -76,7 +76,7 @@ func buildOneConfig(name, cniVersion string, orig *PluginConf, prevResult types.
 		return nil, nil, fmt.Errorf("error parsing configuration: %s", err)
 	}
 
-	return conf, newBytes, nil
+	return newBytes, nil
 }
 
 var _ = Describe("bandwidth test", func() {
