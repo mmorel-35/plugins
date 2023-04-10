@@ -16,6 +16,7 @@ linters:
     - gocritic
     - gofumpt
     - gosimple
+    - govet
     - ineffassign
     - misspell
     - nonamedreturns
