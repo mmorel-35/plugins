@@ -260,7 +260,7 @@ var _ = Describe("firewalld test", func() {
 		It(fmt.Sprintf("[%s] works with Check", ver), func() {
 			Expect(isFirewalldRunning()).To(BeTrue())
 
-			conf := makeFirewalldConf(ver, ifname, targetNs)
+			conf := makeFirewalldConf(ver, targetNs)
 			args := &skel.CmdArgs{
 				ContainerID: "dummy",
 				Netns:       targetNs.Path(),
