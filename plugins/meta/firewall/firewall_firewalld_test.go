@@ -101,7 +101,7 @@ func spawnSessionDbus(wg *sync.WaitGroup) (string, *exec.Cmd) {
 	return busAddr, cmd
 }
 
-func makeFirewalldConf(ver, ifname string, ns ns.NetNS) []byte {
+func makeFirewalldConf(ver string, ns ns.NetNS) []byte {
 	return []byte(fmt.Sprintf(`{
 	  "cniVersion": "%s",
 	  "name": "firewalld-test",
@@ -111,7 +111,7 @@ func makeFirewalldConf(ver, ifname string, ns ns.NetNS) []byte {
 	  "prevResult": {
 	    "cniVersion": "%s",
 	    "interfaces": [
-	      {"name": "%s", "sandbox": "%s"}
+	      {"name": "eth0", "sandbox": "%s"}
 	    ],
 	    "ips": [
 	      {
@@ -122,7 +122,7 @@ func makeFirewalldConf(ver, ifname string, ns ns.NetNS) []byte {
 	      }
 	    ]
 	  }
-	}`, ver, ver, ifname, ns.Path()))
+	}`, ver, ver, ns.Path()))
 }
 
 var _ = Describe("firewalld test", func() {
