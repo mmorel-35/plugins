@@ -868,7 +868,7 @@ var _ = Describe("base functionality", func() {
 			err = json.Unmarshal([]byte(conf), &n)
 			Expect(err).NotTo(HaveOccurred())
 
-			n.IPAM, _, err = LoadIPAMConfig([]byte(conf), "")
+			n.IPAM, err = LoadIPAMConfig([]byte(conf), "")
 			Expect(err).NotTo(HaveOccurred())
 
 			if testutils.SpecVersionHasCHECK(ver) {
@@ -984,7 +984,7 @@ var _ = Describe("base functionality", func() {
 			err = json.Unmarshal([]byte(conf), &n)
 			Expect(err).NotTo(HaveOccurred())
 
-			n.IPAM, _, err = LoadIPAMConfig([]byte(conf), "")
+			n.IPAM, err = LoadIPAMConfig([]byte(conf), "")
 			Expect(err).NotTo(HaveOccurred())
 
 			if testutils.SpecVersionHasCHECK(ver) {
