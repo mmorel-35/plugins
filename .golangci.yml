@@ -21,6 +21,7 @@ linters:
     - govet
     - ineffassign
     - misspell
+    - nilerr
     - nonamedreturns
     - predeclared
     - revive
