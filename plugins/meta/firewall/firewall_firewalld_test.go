@@ -60,7 +60,7 @@ func (f *fakeFirewalld) RemoveSource(zone, source string) (string, *dbus.Error) 
 }
 
 //nolint:unparam
-func (f *fakeFirewalld) QuerySource(zone, source string) (string, *dbus.Error) {
+func (f *fakeFirewalld) QuerySource(zone, source string) (bool, *dbus.Error) {
 	if f.zone != zone {
 		return false, nil
 	}
